@@ -6,9 +6,6 @@ python tiny_llm_trainer.py chat --model ckpt_micro.pt
 python tiny_llm_trainer.py gen --model ckpt_micro.pt --prompt "Once upon"
 ```
 
-`tiny_llm_trainer.py` at the root is now just a thin launcher — all the
-real code lives in `tiny_llm/`.
-
 ## Module map
 
 | File                      | What's in it                                                              |
@@ -28,6 +25,9 @@ real code lives in `tiny_llm/`.
 | `cli.py`                   | `argparse` wiring, signal handling, `main()` spins up worker + TUI threads |
 
 ## Why it's split this way
+
+Basically, my first 3 versions (i had LLM (failed), LLMv2, LLMkvcache (kvcache test, technically v3), and LLMv4 (which this is based off of)
+Originally it was made as one single file because that was my original "religion", i thought it would be easier... I guess not
 
 The original file already had numbered section headers (`# 1. LOGGING`,
 `# 2. DEVICE + AMP HELPERS`, etc.) — turns out those were basically already
