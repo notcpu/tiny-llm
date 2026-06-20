@@ -14,18 +14,18 @@ real code lives in `tiny_llm/`.
 | File                      | What's in it                                                              |
 |----------------------------|----------------------------------------------------------------------------|
 | `logging_utils.py`         | `append_debug/error/traceback`, log file paths, `shutdown_requested` / `TUI_ACTIVE` flags |
-| `device_utils.py`          | `best_device`, `autocast_ctx`, `make_scaler` — CUDA/MPS/CPU + AMP handling |
+| `device_utils.py`          | `best_device`, `autocast_ctx`, `make_scaler` CUDA/MPS/CPU + AMP handling |
 | `lr_schedule.py`           | `get_lr` (warmup+cosine), `optimal_lr` (auto-LR heuristic)                |
-| `tokenizer.py`             | `CharTokenizer` — the character-level vocab                               |
+| `tokenizer.py`             | `CharTokenizer` the character-level vocab                               |
 | `dataset.py`               | local `.txt` loading/cleaning, HuggingFace dataset loading, `get_batch`   |
 | `model.py`                 | `TinyLLM` and its building blocks (attention, MLP, transformer block)     |
-| `arch.py`                  | `choose_arch` — picks layer/dim/head counts to hit a param target; `PRESETS` |
+| `arch.py`                  | `choose_arch` picks layer/dim/head counts to hit a param target; `PRESETS` |
 | `checkpoint.py`            | `save_ckpt` / `load_ckpt` / `_resolve_cfg` (back-compat for old checkpoints) |
 | `state.py`                 | `SharedState` (thread-safe state shared between training + TUI), `snapshot_params` |
-| `tui.py`                   | All the Rich `Live` rendering — header/logs/sample/param-table/footer    |
-| `training.py`              | `training_worker` — the actual training loop, runs on its own thread     |
-| `commands.py`              | `cmd_create`, `cmd_chat`, `cmd_gen` — the non-training subcommands        |
-| `cli.py`                   | `argparse` wiring, signal handling, `main()` — spins up worker + TUI threads |
+| `tui.py`                   | All the Rich `Live` rendering like header/logs/sample/param-table/footer    |
+| `training.py`              | `training_worker` is the actual training loop, runs on its own thread     |
+| `commands.py`              | `cmd_create`, `cmd_chat`, `cmd_gen` are the non-training subcommands        |
+| `cli.py`                   | `argparse` wiring, signal handling, `main()` spins up worker + TUI threads |
 
 ## Why it's split this way
 
